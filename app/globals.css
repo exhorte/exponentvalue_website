@@ -1,26 +1,200 @@
 @import "tailwindcss";
 
+/* ————————————————————————————————————————————————
+   TOKENS — Direction artistique « Silver Grain Gradient »
+   Source unique de vérité : aucune couleur en dur ailleurs.
+   ———————————————————————————————————————————————— */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --silver-50: #fbfbfa;
+  --silver-100: #f2f2f1;
+  --silver-200: #e6e6e4;
+  --silver-300: #d2d2cf;
+  --silver-400: #a9a9a6;
+  --graphite-700: #3a3a3a;
+  --graphite-900: #161616;
+  --ink: #0b0b0b;
+  --accent-blue: #4e9fe3;
+  --accent-blue-deep: #2e6fb0;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-silver-50: var(--silver-50);
+  --color-silver-100: var(--silver-100);
+  --color-silver-200: var(--silver-200);
+  --color-silver-300: var(--silver-300);
+  --color-silver-400: var(--silver-400);
+  --color-graphite-700: var(--graphite-700);
+  --color-graphite-900: var(--graphite-900);
+  --color-ink: var(--ink);
+  --color-accent-blue: var(--accent-blue);
+  --color-accent-blue-deep: var(--accent-blue-deep);
+
+  /* GARET : quand les .woff2 seront déposés dans /public/fonts/ et le bloc
+     localFont décommenté dans app/layout.tsx, remplacer "Garet" ci-dessous
+     par var(--font-garet). */
+  --font-sans: "Garet", var(--font-poppins), "Montserrat", ui-sans-serif,
+    sans-serif;
+  --font-mono: var(--font-plex-mono), "IBM Plex Mono", ui-monospace,
+    "SFMono-Regular", monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ————————————————————————————————————————————————
+   BASE
+   ———————————————————————————————————————————————— */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--silver-50);
+  color: var(--graphite-700);
+  font-family: var(--font-sans);
+  font-size: 1.06rem;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--graphite-900);
+  color: var(--silver-50);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-blue);
+  outline-offset: 2px;
+}
+
+/* ————————————————————————————————————————————————
+   FONDS — dégradés radiaux argentés, halo bleu, sections sombres
+   ———————————————————————————————————————————————— */
+.bg-radial-silver {
+  background:
+    radial-gradient(
+      1200px 600px at 70% -10%,
+      #ffffff 0%,
+      var(--silver-100) 45%,
+      var(--silver-200) 100%
+    );
+}
+
+.bg-radial-silver-soft {
+  background:
+    radial-gradient(
+      1000px 500px at 30% 110%,
+      #ffffff 0%,
+      var(--silver-50) 55%,
+      var(--silver-100) 100%
+    );
+}
+
+/* Halo bleu diffus — réservé au hero, rappel du visuel de marque */
+.halo-blue {
+  position: absolute;
+  pointer-events: none;
+  width: min(60rem, 90vw);
+  height: 34rem;
+  top: -10rem;
+  right: -14rem;
+  background: radial-gradient(
+    closest-side,
+    var(--accent-blue) 0%,
+    transparent 70%
+  );
+  opacity: 0.12;
+  filter: blur(60px);
+}
+
+/* Sections sombres de rupture : dégradé du visuel de marque + grain renforcé */
+.section-dark {
+  position: relative;
+  background: linear-gradient(160deg, var(--ink) 0%, #2a2a2a 100%);
+  color: var(--silver-100);
+}
+
+.section-dark::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: var(--grain-url);
+  background-repeat: repeat;
+  opacity: 0.09;
+  mix-blend-mode: overlay;
+}
+
+/* ————————————————————————————————————————————————
+   GRAIN — texture photographique globale (voir <GrainOverlay />)
+   ———————————————————————————————————————————————— */
+:root {
+  --grain-url: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  background-image: var(--grain-url);
+  background-repeat: repeat;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+}
+
+/* ————————————————————————————————————————————————
+   FILETS — lignes horizontales fines (grammaire Palantir)
+   ———————————————————————————————————————————————— */
+.hairline {
+  border-top: 1px solid var(--silver-200);
+}
+
+.hairline-dark {
+  border-top: 1px solid color-mix(in srgb, var(--silver-100) 14%, transparent);
+}
+
+/* ————————————————————————————————————————————————
+   MOTION — un seul moment orchestré au load (hero),
+   révélation discrète au scroll, tout coupé en reduced-motion
+   ———————————————————————————————————————————————— */
+@keyframes hero-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-line {
+  opacity: 0;
+  animation: hero-in 400ms ease-out forwards;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 500ms ease-out,
+    transform 500ms ease-out;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .hero-line {
+    animation: none;
+    opacity: 1;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
