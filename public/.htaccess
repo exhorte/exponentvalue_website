@@ -1,0 +1,51 @@
+# exponentvalue — configuration Apache/LiteSpeed (Hostinger).
+# Ce fichier vit dans public/ : Next.js le recopie dans out/ à chaque build.
+
+# --- Page 404 -----------------------------------------------------------
+# Sans cette ligne, une URL inconnue renvoie la page d'erreur Hostinger
+# au lieu du 404 de la marque généré par Next.
+ErrorDocument 404 /404.html
+
+# --- HTTPS --------------------------------------------------------------
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Force HTTPS. HTTP:X-Forwarded-Proto couvre le cas où le SSL est terminé
+  # en amont par le proxy Hostinger, où %{HTTPS} reste "off".
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# --- Cache --------------------------------------------------------------
+<IfModule mod_headers.c>
+  # Les fichiers sous /_next/static/ portent un hash dans leur nom : leur
+  # contenu ne change jamais sans que l'URL change. Cache maximal.
+  <IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^_next/static/ - [E=IMMUTABLE:1]
+  </IfModule>
+  Header set Cache-Control "public, max-age=31536000, immutable" env=IMMUTABLE
+
+  # Le HTML, lui, doit être revalidé : c'est ce qui permet à un nouveau
+  # déploiement d'être visible immédiatement.
+  <FilesMatch "\.html$">
+    Header set Cache-Control "public, max-age=0, must-revalidate"
+  </FilesMatch>
+
+  # Durcissement de base.
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set X-Frame-Options "SAMEORIGIN"
+</IfModule>
+
+# --- Compression --------------------------------------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml \
+    application/javascript application/json image/svg+xml
+</IfModule>
+
+# --- Types --------------------------------------------------------------
+<IfModule mod_mime.c>
+  AddType font/woff2 .woff2
+</IfModule>

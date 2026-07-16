@@ -20,6 +20,9 @@
 # production
 /build
 
+# archive de deploiement (regeneree a chaque build)
+/exponentvalue-site.zip
+
 # misc
 .DS_Store
 *.pem
