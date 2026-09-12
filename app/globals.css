@@ -161,6 +161,33 @@ body {
 }
 
 /* ————————————————————————————————————————————————
+   TITRES — mesurés sur palantir.com : poids 400 partout (jamais bold),
+   tracking négatif serré, line-height compact. La taille et l'espacement
+   portent le poids visuel, pas la graisse. Trois paliers : hero (~80px
+   desktop), section (~46px), sous-section (~28px).
+   ———————————————————————————————————————————————— */
+.heading-hero {
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+  font-size: clamp(2.75rem, 6vw, 5rem);
+}
+
+.heading-lg {
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  font-size: clamp(1.9rem, 3.6vw, 2.9rem);
+}
+
+.heading-md {
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-size: clamp(1.4rem, 2.2vw, 1.75rem);
+}
+
+/* ————————————————————————————————————————————————
    MOTION — un seul moment orchestré au load (hero),
    révélation discrète au scroll, tout coupé en reduced-motion
    ———————————————————————————————————————————————— */

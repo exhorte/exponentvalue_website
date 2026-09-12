@@ -13,15 +13,15 @@ export const metadata: Metadata = {
     template: "%s — ExponentValue",
   },
   description:
-    "ExponentValue conçoit, déploie et supervise des systèmes d'agents IA gouvernés pour les PME et ETI francophones — des actions mesurables, contrôlées et auditables.",
+    "ExponentValue designs, deploys, and supervises governed AI agent systems for French-speaking SMBs and mid-market companies — measurable, controlled, auditable actions.",
   openGraph: {
     type: "website",
-    locale: "fr_FR",
+    locale: "en_US",
     siteName: "ExponentValue",
     url: "https://exponentvalue.com",
     title: "ExponentValue — Multiply what matters.",
     description:
-      "Compress time. Expand value. Des agents IA gouvernés, branchés sur vos opérations, avec preuve et contrôle à chaque décision.",
+      "Compress time. Expand value. Governed AI agents, wired into your operations, with evidence and control behind every decision.",
   },
 };
 
@@ -32,7 +32,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="fr"
+      lang="en"
       className={`${GeistSans.variable} ${GeistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">

@@ -6,9 +6,9 @@ const BASE_URL = "https://exponentvalue.com";
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return ["", "/plateforme", "/methode", "/secteurs", "/entreprise", "/contact"].map(
+  return ["", "/platform", "/method", "/sectors", "/company", "/contact"].map(
     (path) => ({
-      /* Slash final : `trailingSlash` rend `/methode/` canonique, et une URL
+      /* Slash final : `trailingSlash` rend `/method/` canonique, et une URL
          sans slash coûterait une redirection 301 à chaque crawl. */
       url: `${BASE_URL}${path}/`,
       lastModified: new Date(),

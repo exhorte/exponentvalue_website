@@ -25,7 +25,7 @@ export default function Card({
     >
       <PixelMark className="text-silver-400" />
       <h3
-        className={`mt-5 text-lg font-extrabold tracking-tight ${
+        className={`heading-md mt-5 ${
           dark ? "text-silver-50" : "text-graphite-900"
         }`}
       >

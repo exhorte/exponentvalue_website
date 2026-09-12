@@ -78,7 +78,7 @@ export default function LayerStack({ layers }: { layers: Layer[] }) {
             <p className="font-mono text-[0.78rem] uppercase tracking-[0.18em] text-accent-blue">
               {layer.codename}
             </p>
-            <h3 className="mt-3 text-2xl font-extrabold tracking-tight text-graphite-900">
+            <h3 className="heading-md mt-3 text-graphite-900">
               {layer.name}
             </h3>
             <p className="mt-4 max-w-2xl text-[0.98rem] leading-relaxed text-graphite-700">

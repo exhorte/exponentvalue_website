@@ -5,15 +5,15 @@ const columns = [
   {
     title: "Site",
     links: [
-      { href: "/plateforme", label: "Plateforme" },
-      { href: "/methode", label: "Méthode" },
-      { href: "/secteurs", label: "Secteurs" },
+      { href: "/platform", label: "Platform" },
+      { href: "/method", label: "Method" },
+      { href: "/sectors", label: "Sectors" },
     ],
   },
   {
-    title: "Entreprise",
+    title: "Company",
     links: [
-      { href: "/entreprise", label: "Manifeste" },
+      { href: "/company", label: "Manifesto" },
       { href: "/contact", label: "Contact" },
     ],
   },
@@ -29,8 +29,8 @@ export default function Footer() {
               ExponentValue
             </p>
             <p className="mt-3 max-w-xs text-[0.92rem] leading-relaxed">
-              Multiply what matters. Des agents IA gouvernés pour les PME et
-              ETI francophones.
+              Multiply what matters. Governed AI agents for French-speaking
+              SMBs and mid-market companies.
             </p>
           </div>
           <div className="flex gap-16 md:gap-24">
@@ -61,7 +61,7 @@ export default function Footer() {
             exponentvalue.com
           </p>
           <p className="text-[0.82rem] text-silver-400">
-            © {new Date().getFullYear()} ExponentValue. Tous droits réservés.
+            © {new Date().getFullYear()} ExponentValue. All rights reserved.
           </p>
           <PixelMark className="text-silver-400" />
         </div>

@@ -1,42 +1,53 @@
 import Link from "next/link";
 import Button from "@/components/Button";
 import Card from "@/components/Card";
+import Counter from "@/components/Counter";
 import Eyebrow from "@/components/Eyebrow";
+import HeroVideo from "@/components/HeroVideo";
+import Marquee from "@/components/Marquee";
 import PixelMark from "@/components/PixelMark";
 import Reveal from "@/components/Reveal";
-import ScrollVideo from "@/components/ScrollVideo";
 import Section from "@/components/Section";
-import StatBlock from "@/components/StatBlock";
 import StepFlow from "@/components/StepFlow";
 
 const frictions = [
   {
-    title: "La surpromesse",
-    text: "« Autonomie totale », « zéro friction » : aucun déploiement n’a un effort nul et un agent a toujours besoin d’une supervision. Le discours dominant sur l’IA ignore cette réalité.",
+    title: "The overpromise",
+    text: "“Full autonomy,” “zero friction”: no deployment has zero effort, and an agent always needs supervision. The dominant AI narrative ignores this.",
   },
   {
-    title: "Le fossé pilote → production",
-    text: "Un agent testé en démonstration n’est pas un agent qui tourne, tous les jours, connecté à vos outils réels, avec quelqu’un qui en répond.",
+    title: "The pilot-to-production gap",
+    text: "An agent tested in a demo is not an agent that runs, every day, connected to your real tools, with someone accountable for it.",
   },
   {
-    title: "Zéro gouvernance, zéro preuve",
-    text: "Sans journal d’audit ni validation humaine avant action, une recommandation d’IA reste une opinion — jamais une décision qu’on peut défendre.",
+    title: "Zero governance, zero proof",
+    text: "Without an audit trail or human validation before action, an AI recommendation stays an opinion — never a decision you can defend.",
   },
 ];
 
 const pillars = [
   {
-    title: "Agents gouvernés, jamais autonomes par défaut",
-    text: "Un agent qui produit un travail n’est jamais celui qui le valide. Autonomie progressive, validation humaine obligatoire pour toute action critique.",
+    title: "Governed agents, never autonomous by default",
+    text: "An agent that produces work is never the one that validates it. Progressive autonomy, mandatory human validation for every critical action.",
   },
   {
-    title: "Une mémoire d’entreprise, pas un chatbot",
-    text: "Recherche hybride (exact, vecteurs, graphe) et un journal de preuves : chaque réponse reliée à sa source, sa date de validité et son niveau de confiance.",
+    title: "An enterprise memory, not a chatbot",
+    text: "Hybrid search — exact, vector, graph — and an evidence log: every answer linked to its source, its validity date, and its confidence level.",
   },
   {
-    title: "Branché sur vos outils, pas l’inverse",
-    text: "Excel, WhatsApp, Odoo, Sage, e-mail : ExponentValue s’intègre à ce que vous utilisez déjà, sans migration forcée ni dépendance à un écosystème fermé.",
+    title: "Wired into your tools, not the other way around",
+    text: "Excel, WhatsApp, Odoo, Sage, email: ExponentValue plugs into what you already use — no forced migration, no lock-in to a closed ecosystem.",
   },
+];
+
+const integrations = [
+  "Excel",
+  "Google Sheets",
+  "WhatsApp",
+  "Odoo",
+  "Sage",
+  "Email",
+  "API",
 ];
 
 const methodSteps = [
@@ -44,40 +55,40 @@ const methodSteps = [
     number: "E",
     title: "Examine",
     description:
-      "Diagnostic ciblé de vos opérations : où l’IA change réellement la donne, où elle n’apporte rien.",
+      "A focused diagnostic of your operations: where AI actually changes the game, where it adds nothing.",
   },
   {
     number: "O",
     title: "Orchestrate",
     description:
-      "Déploiement de l’AgentOS : missions, validateurs indépendants, budgets, sandbox — jamais un script isolé.",
+      "Deploying the AgentOS: missions, independent validators, budgets, sandboxing — never an isolated script.",
   },
   {
     number: "N",
     title: "Navigate",
     description:
-      "Un tableau de bord vivant : agents actifs, coût, heures économisées, ROI mesuré en continu.",
+      "A living dashboard: active agents, cost, hours saved, ROI measured continuously.",
   },
   {
     number: "T",
     title: "Transform",
     description:
-      "Amélioration continue en abonnement Managed AI Operations — le projet devient un système permanent.",
+      "Continuous improvement through a Managed AI Operations subscription — the project becomes a permanent system.",
   },
 ];
 
 const verticalPacks = [
   {
     title: "Inventory & Cash Control",
-    text: "Stock unifié, prévision des ruptures, suivi des créances, rapprochement ventes-paiements, alertes WhatsApp — validation humaine avant chaque action.",
+    text: "Unified stock, stockout forecasting, receivables tracking, sales-to-payment reconciliation, WhatsApp alerts — human validation before every action.",
   },
   {
     title: "Customer / ServiceOps",
-    text: "Qualification, SLA et suivi client sur WhatsApp et e-mail : un agent qui recommande, un humain qui répond.",
+    text: "Qualification, SLAs, and customer follow-up on WhatsApp and email: an agent that recommends, a human who responds.",
   },
   {
     title: "DocumentOps",
-    text: "Devis, factures et rapports générés puis vérifiés automatiquement — le résultat le plus rapide à constater.",
+    text: "Quotes, invoices, and reports generated and then verified automatically — the fastest result to see for yourself.",
   },
 ];
 
@@ -85,116 +96,123 @@ const offers = [
   {
     level: "0",
     title: "AI Opportunity Scan",
-    text: "Diagnostic léger, gratuit — la porte d’entrée.",
+    text: "A light, free diagnostic — the entry point.",
   },
   {
     level: "1",
     title: "Decision Sprint",
-    text: "5 à 30 jours, forfait fixe. Premier résultat mesuré.",
+    text: "5 to 30 days, fixed fee. A first measured result.",
   },
   {
     level: "2",
-    title: "Déploiement vertical",
-    text: "Le vertical pack complet, connecté à vos outils.",
+    title: "Vertical deployment",
+    text: "The full vertical pack, wired into your tools.",
   },
   {
     level: "3",
     title: "Managed AI Operations",
-    text: "Abonnement — supervision continue, le moteur économique récurrent.",
+    text: "Subscription — continuous oversight, the recurring economic engine.",
   },
   {
     level: "4",
     title: "Exponent Assurance",
-    text: "Audit et gouvernance — vendable même si vous utilisez déjà ChatGPT, Copilot ou n8n.",
+    text: "Audit and governance — sellable even if you already run ChatGPT, Copilot, or n8n.",
   },
 ];
 
 export default function Home() {
   return (
     <>
-      {/* 1 — HERO : plein écran, fond argent granuleux, halo bleu discret,
-          carte vidéo flottante à droite (desktop uniquement) */}
-      <section className="bg-radial-silver relative flex min-h-[calc(100svh-4rem)] items-center overflow-hidden">
-        <div className="halo-blue" aria-hidden="true" />
-        <div className="relative mx-auto grid w-full max-w-[1280px] gap-12 px-6 py-20 md:px-10 lg:grid-cols-[1fr_320px] lg:items-center">
-          <div>
-            <div className="hero-line" style={{ animationDelay: "0ms" }}>
-              <Eyebrow>Agents IA gouvernés</Eyebrow>
-            </div>
-            <h1 className="mt-8 max-w-2xl text-[clamp(2.8rem,7vw,6rem)] font-extrabold leading-[1.02] tracking-[-0.03em] text-graphite-900">
-              <span
-                className="hero-line block"
-                style={{ animationDelay: "120ms" }}
-              >
-                Compress time.
-              </span>
-              <span
-                className="hero-line block"
-                style={{ animationDelay: "240ms" }}
-              >
-                Expand <span className="text-accent-blue">value</span>.
-              </span>
-            </h1>
-            <p
-              className="hero-line mt-8 max-w-2xl text-lg leading-relaxed text-graphite-700"
-              style={{ animationDelay: "360ms" }}
-            >
-              ExponentValue conçoit, déploie et supervise des systèmes
-              d’agents IA gouvernés qui transforment les opérations
-              dispersées des PME et ETI francophones en actions mesurables,
-              contrôlées et auditables.
-            </p>
-            <div
-              className="hero-line mt-10 flex flex-col gap-4 sm:flex-row"
-              style={{ animationDelay: "480ms" }}
-            >
-              <Button href="/contact">Démarrer mon diagnostic</Button>
-              <Button href="/methode" variant="outline">
-                Découvrir la méthode
-              </Button>
-            </div>
-            <div
-              className="hero-line hairline mt-16 pt-8"
-              style={{ animationDelay: "600ms" }}
-            >
-              <StatBlock
-                stats={[
-                  { value: "8", label: "Étapes du framework EXPONENT" },
-                  { value: "3", label: "Vertical packs en feuille de route" },
-                  {
-                    value: "0",
-                    label: "Action critique sans validation humaine",
-                  },
-                ]}
-              />
-            </div>
+      {/* 1 — HERO : vidéo plein cadre, zoom/décalage/fondu au scroll (Scale AI) */}
+      <section className="relative flex min-h-[calc(100svh-4rem)] items-center overflow-hidden">
+        <HeroVideo src="/videos/v1.mp4" />
+        <div className="relative z-10 mx-auto w-full max-w-[1280px] px-6 py-20 md:px-10">
+          <div className="hero-line" style={{ animationDelay: "0ms" }}>
+            <Eyebrow light>Governed AI agents</Eyebrow>
           </div>
-          <div className="hero-line hidden lg:block" style={{ animationDelay: "300ms" }}>
-            <ScrollVideo
-              src="/videos/v1.mp4"
-              speed={0.1}
-              preload="auto"
-              className="aspect-[9/16] w-full"
-            />
+          <h1 className="heading-hero mt-8 max-w-3xl text-silver-50">
+            <span
+              className="hero-line block"
+              style={{ animationDelay: "120ms" }}
+            >
+              Compress time.
+            </span>
+            <span
+              className="hero-line block"
+              style={{ animationDelay: "240ms" }}
+            >
+              Expand <span className="text-accent-blue">value</span>.
+            </span>
+          </h1>
+          <p
+            className="hero-line mt-8 max-w-2xl text-lg leading-relaxed text-silver-300"
+            style={{ animationDelay: "360ms" }}
+          >
+            ExponentValue designs, deploys, and supervises governed AI agent
+            systems that turn the scattered operations of French-speaking
+            SMBs and mid-market companies into measurable, controlled,
+            auditable actions.
+          </p>
+          <div
+            className="hero-line mt-10 flex flex-col gap-4 sm:flex-row"
+            style={{ animationDelay: "480ms" }}
+          >
+            <Button href="/contact" variant="inverse">
+              Start my diagnostic
+            </Button>
+            <Button href="/method" variant="outline-inverse">
+              Explore the method
+            </Button>
+          </div>
+          <div
+            className="hero-line hairline-dark mt-16 pt-8"
+            style={{ animationDelay: "600ms" }}
+          >
+            <dl className="flex flex-col gap-4 font-mono sm:flex-row sm:gap-0">
+              <div className="flex-1 py-1 sm:pl-0">
+                <dd className="text-[0.95rem] font-medium tracking-[0.08em] text-silver-50">
+                  <Counter target={8} />
+                </dd>
+                <dt className="mt-1 text-[0.72rem] uppercase tracking-[0.18em] text-silver-400">
+                  Steps in the EXPONENT framework
+                </dt>
+              </div>
+              <div className="flex-1 border-t border-silver-100/15 py-1 pt-4 sm:border-t-0 sm:border-l sm:border-silver-100/15 sm:px-8 sm:pt-1">
+                <dd className="text-[0.95rem] font-medium tracking-[0.08em] text-silver-50">
+                  <Counter target={3} />
+                </dd>
+                <dt className="mt-1 text-[0.72rem] uppercase tracking-[0.18em] text-silver-400">
+                  Vertical packs on the roadmap
+                </dt>
+              </div>
+              <div className="flex-1 border-t border-silver-100/15 py-1 pt-4 sm:border-t-0 sm:border-l sm:border-silver-100/15 sm:px-8 sm:pt-1">
+                <dd className="text-[0.95rem] font-medium tracking-[0.08em] text-silver-50">
+                  0
+                </dd>
+                <dt className="mt-1 text-[0.72rem] uppercase tracking-[0.18em] text-silver-400">
+                  Critical actions without human validation
+                </dt>
+              </div>
+            </dl>
           </div>
         </div>
       </section>
 
-      {/* 2 — LE CONSTAT : deux colonnes sur fond silver-100 */}
+      {/* 2 — THE REALITY CHECK */}
       <Section className="bg-silver-100" rule={false}>
         <Reveal>
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
             <div>
-              <Eyebrow>Le constat</Eyebrow>
-              <h2 className="mt-6 text-[clamp(2rem,4vw,3.2rem)] font-extrabold leading-tight tracking-tight text-graphite-900">
-                Tout le monde parle d’IA. Peu d’entreprises en tirent une
-                valeur mesurable.
+              <Eyebrow>The reality check</Eyebrow>
+              <h2 className="heading-lg mt-6 text-graphite-900">
+                Everyone talks about AI. Few companies get measurable value
+                from it.
               </h2>
               <p className="mt-6 max-w-xl">
-                La plupart des pilotes IA restent des démonstrations : un
-                agent sans supervision, déconnecté des outils réels, qui ne
-                survit pas au premier changement d’équipe. Le problème n’est
-                jamais le modèle — c’est l’absence de système autour de lui.
+                Most AI pilots stay demos: an unsupervised agent, disconnected
+                from real tools, that doesn&rsquo;t survive the first team
+                change. The problem is never the model &mdash; it&rsquo;s the
+                absence of a system around it.
               </p>
             </div>
             <div>
@@ -203,9 +221,7 @@ export default function Home() {
                   key={f.title}
                   className={`py-6 ${i > 0 ? "hairline" : "lg:pt-0"}`}
                 >
-                  <h3 className="text-lg font-extrabold tracking-tight text-graphite-900">
-                    {f.title}
-                  </h3>
+                  <h3 className="heading-md text-graphite-900">{f.title}</h3>
                   <p className="mt-2 text-[0.98rem]">{f.text}</p>
                 </div>
               ))}
@@ -214,18 +230,18 @@ export default function Home() {
         </Reveal>
       </Section>
 
-      {/* 3 — LA PLATEFORME : section sombre de rupture, principe de
-          gouvernance en intro */}
+      {/* 3 — THE PLATFORM : section sombre, principe de gouvernance en intro,
+          bandeau d'intégrations en marquee */}
       <Section dark rule={false}>
         <Reveal>
-          <Eyebrow light>La plateforme</Eyebrow>
-          <h2 className="mt-6 max-w-3xl text-[clamp(2rem,4vw,3.2rem)] font-extrabold leading-tight tracking-tight text-silver-50">
-            Des agents qui recommandent. Des humains qui décident.
+          <Eyebrow light>The platform</Eyebrow>
+          <h2 className="heading-lg mt-6 max-w-3xl text-silver-50">
+            Agents that recommend. Humans who decide.
           </h2>
           <p className="mt-6 max-w-2xl text-silver-300">
-            Un principe traverse toute l’architecture ExponentOS : un agent
-            qui produit un travail n’est jamais celui qui le valide. La
-            discipline d’un système financier, appliquée à vos opérations.
+            One principle runs through the entire ExponentOS architecture: an
+            agent that produces work is never the one that validates it. The
+            discipline of a financial system, applied to your operations.
           </p>
           <div className="mt-14 grid gap-6 md:grid-cols-3">
             {pillars.map((p) => (
@@ -235,51 +251,67 @@ export default function Home() {
             ))}
           </div>
           <Link
-            href="/plateforme"
+            href="/platform"
             className="mt-10 inline-block font-mono text-[0.85rem] uppercase tracking-[0.18em] text-silver-100 underline decoration-silver-400/60 underline-offset-8 transition-colors duration-150 hover:decoration-silver-100"
           >
-            Explorer l’architecture ExponentOS
+            Explore the ExponentOS architecture
           </Link>
+        </Reveal>
+        <Reveal className="mt-16">
+          <p className="font-mono text-[0.68rem] uppercase tracking-[0.18em] text-silver-400">
+            Connects to the tools you already run
+          </p>
+          <Marquee className="mt-6">
+            {integrations.map((name) => (
+              <span
+                key={name}
+                className="font-mono text-sm uppercase tracking-[0.1em] text-silver-300"
+              >
+                {name}
+              </span>
+            ))}
+          </Marquee>
         </Reveal>
       </Section>
 
-      {/* 4 — LA MÉTHODE : aperçu du framework EXPONENT (4 des 8 lettres) */}
+      {/* 4 — THE METHOD : aperçu du framework EXPONENT (4 des 8 lettres) */}
       <Section rule={false} className="bg-radial-silver-soft">
         <Reveal>
-          <Eyebrow>La méthode</Eyebrow>
-          <h2 className="mt-6 text-[clamp(2rem,4vw,3.2rem)] font-extrabold leading-tight tracking-tight text-graphite-900">
-            Huit étapes, une seule trajectoire.
+          <Eyebrow>The method</Eyebrow>
+          <h2 className="heading-lg mt-6 text-graphite-900">
+            Eight steps, one trajectory.
           </h2>
         </Reveal>
         <StepFlow steps={methodSteps} className="mt-14" />
         <Reveal>
           <Link
-            href="/methode"
+            href="/method"
             className="mt-10 inline-block font-mono text-[0.85rem] uppercase tracking-[0.18em] text-graphite-900 underline decoration-silver-300 underline-offset-8 transition-colors duration-150 hover:decoration-graphite-700"
           >
-            Voir les 8 étapes du framework EXPONENT
+            See all 8 steps of the EXPONENT framework
           </Link>
         </Reveal>
       </Section>
 
-      {/* 5 — MANIFESTE : grand bloc éditorial centré */}
-      <Section>
-        <Reveal>
-          <blockquote className="mx-auto max-w-4xl py-6 text-center md:py-10">
-            <PixelMark className="mx-auto text-silver-400" />
-            <p className="mt-8 text-[clamp(1.8rem,3.6vw,3rem)] font-extrabold leading-snug tracking-tight text-graphite-900">
+      {/* 5 — MANIFESTO : citation plein cadre, vidéo en fond (Scale AI) */}
+      <section className="relative flex min-h-[70svh] items-center overflow-hidden">
+        <HeroVideo src="/videos/v5.mp4" />
+        <div className="relative z-10 mx-auto max-w-4xl px-6 py-24 text-center md:px-10">
+          <Reveal>
+            <PixelMark className="mx-auto text-silver-300" />
+            <p className="heading-lg mt-8 text-silver-50">
               We build governed intelligent systems that scale human intent.
             </p>
-          </blockquote>
-        </Reveal>
-      </Section>
+          </Reveal>
+        </div>
+      </section>
 
       {/* 6 — VERTICAL PACKS : 3 cartes réelles, pas de placeholder */}
       <Section className="bg-silver-100" rule={false}>
         <Reveal>
           <Eyebrow>Vertical packs</Eyebrow>
-          <h2 className="mt-6 text-[clamp(2rem,4vw,3.2rem)] font-extrabold leading-tight tracking-tight text-graphite-900">
-            Une verticale de départ. Un ROI mesurable en semaines.
+          <h2 className="heading-lg mt-6 text-graphite-900">
+            One starting vertical. Measurable ROI in weeks.
           </h2>
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {verticalPacks.map((v) => (
@@ -289,20 +321,20 @@ export default function Home() {
             ))}
           </div>
           <Link
-            href="/secteurs"
+            href="/sectors"
             className="mt-10 inline-block font-mono text-[0.85rem] uppercase tracking-[0.18em] text-graphite-900 underline decoration-silver-300 underline-offset-8 transition-colors duration-150 hover:decoration-graphite-700"
           >
-            Découvrir les vertical packs
+            Discover the vertical packs
           </Link>
         </Reveal>
       </Section>
 
-      {/* 7 — ÉCHELLE D’OFFRES : de l’audit gratuit à l’exploitation gérée */}
+      {/* 7 — OFFER LADDER : from a free scan to fully managed operations */}
       <Section rule={false}>
         <Reveal>
-          <Eyebrow>Comment travailler avec nous</Eyebrow>
-          <h2 className="mt-6 text-[clamp(2rem,4vw,3.2rem)] font-extrabold leading-tight tracking-tight text-graphite-900">
-            De l’audit gratuit à l’exploitation gérée.
+          <Eyebrow>How we work together</Eyebrow>
+          <h2 className="heading-lg mt-6 text-graphite-900">
+            From a free scan to fully managed operations.
           </h2>
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
             {offers.map((o) => (
@@ -310,7 +342,7 @@ export default function Home() {
                 <span className="font-mono text-[0.78rem] tracking-[0.18em] text-accent-blue">
                   {o.level}
                 </span>
-                <h3 className="mt-3 text-base font-extrabold tracking-tight text-graphite-900">
+                <h3 className="mt-3 text-base font-medium tracking-tight text-graphite-900">
                   {o.title}
                 </h3>
                 <p className="mt-2 text-[0.92rem] leading-relaxed text-graphite-700">
@@ -326,16 +358,15 @@ export default function Home() {
       <Section dark rule={false}>
         <Reveal>
           <div className="mx-auto max-w-3xl py-6 text-center md:py-10">
-            <h2 className="text-[clamp(2rem,4vw,3.2rem)] font-extrabold leading-tight tracking-tight text-silver-50">
-              Votre premier diagnostic IA, gratuit et sans engagement.
+            <h2 className="heading-lg text-silver-50">
+              Your first AI diagnostic, free and without obligation.
             </h2>
             <p className="mt-6 text-silver-300">
-              Trente minutes suffisent pour cartographier vos opérations et
-              identifier ce qu’un premier système d’agents gouvernés
-              changerait concrètement.
+              Thirty minutes is enough to map your operations and identify
+              what a first governed agent system would actually change.
             </p>
             <Button href="/contact" variant="inverse" className="mt-10">
-              Démarrer mon diagnostic
+              Start my diagnostic
             </Button>
           </div>
         </Reveal>
