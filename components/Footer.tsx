@@ -1,5 +1,5 @@
 import Link from "next/link";
-import PixelMark from "./PixelMark";
+import Logomark from "./Logomark";
 
 const columns = [
   {
@@ -25,7 +25,8 @@ export default function Footer() {
       <div className="mx-auto max-w-[1280px] px-6 py-16 md:px-10 md:py-20">
         <div className="flex flex-col justify-between gap-12 md:flex-row">
           <div>
-            <p className="text-xl font-extrabold tracking-tight text-silver-50">
+            <p className="flex items-center gap-2.5 text-xl font-extrabold tracking-tight text-silver-50">
+              <Logomark className="h-5 w-5" />
               ExponentValue
             </p>
             <p className="mt-3 max-w-xs text-[0.92rem] leading-relaxed">
@@ -63,7 +64,7 @@ export default function Footer() {
           <p className="text-[0.82rem] text-silver-400">
             © {new Date().getFullYear()} ExponentValue. All rights reserved.
           </p>
-          <PixelMark className="text-silver-400" />
+          <Logomark className="h-[10px] w-[10px] text-silver-400" />
         </div>
       </div>
     </footer>

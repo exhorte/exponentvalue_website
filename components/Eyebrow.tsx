@@ -1,7 +1,7 @@
-import PixelMark from "./PixelMark";
+import Logomark from "./Logomark";
 
 /**
- * Label monospace uppercase précédé du PixelMark — geste typographique
+ * Label monospace uppercase précédé du Logomark — geste typographique
  * emprunté à Palantir. `light` pour les sections sombres.
  */
 export default function Eyebrow({
@@ -17,7 +17,9 @@ export default function Eyebrow({
         light ? "text-silver-300" : "text-silver-400"
       }`}
     >
-      <PixelMark className={light ? "text-silver-300" : "text-silver-400"} />
+      <Logomark
+        className={`h-[10px] w-[10px] ${light ? "text-silver-300" : "text-silver-400"}`}
+      />
       {children}
     </p>
   );

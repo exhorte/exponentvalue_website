@@ -5,7 +5,7 @@ import Counter from "@/components/Counter";
 import Eyebrow from "@/components/Eyebrow";
 import HeroVideo from "@/components/HeroVideo";
 import Marquee from "@/components/Marquee";
-import PixelMark from "@/components/PixelMark";
+import Logomark from "@/components/Logomark";
 import Reveal from "@/components/Reveal";
 import Section from "@/components/Section";
 import StepFlow from "@/components/StepFlow";
@@ -298,7 +298,7 @@ export default function Home() {
         <HeroVideo src="/videos/v5.mp4" />
         <div className="relative z-10 mx-auto max-w-4xl px-6 py-24 text-center md:px-10">
           <Reveal>
-            <PixelMark className="mx-auto text-silver-300" />
+            <Logomark className="mx-auto h-6 w-6 text-silver-300" />
             <p className="heading-lg mt-8 text-silver-50">
               We build governed intelligent systems that scale human intent.
             </p>

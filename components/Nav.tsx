@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import PixelMark from "./PixelMark";
+import Logomark from "./Logomark";
 
 const links = [
   { href: "/platform", label: "Platform" },
@@ -34,7 +34,7 @@ export default function Nav() {
             href="/"
             className="flex items-center gap-3 text-[1.05rem] font-extrabold tracking-tight text-graphite-900"
           >
-            <PixelMark className="text-graphite-900" />
+            <Logomark className="h-5 w-5 text-graphite-900" />
             ExponentValue
           </Link>
 

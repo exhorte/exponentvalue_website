@@ -1,4 +1,4 @@
-import PixelMark from "./PixelMark";
+import Logomark from "./Logomark";
 
 /**
  * Carte sobre : bordure fine qui s’assombrit au survol, translation de 2px.
@@ -23,7 +23,7 @@ export default function Card({
           : "border border-silver-200 bg-silver-50 hover:border-graphite-700"
       } ${className}`}
     >
-      <PixelMark className="text-silver-400" />
+      <Logomark className="h-[10px] w-[10px] text-silver-400" />
       <h3
         className={`heading-md mt-5 ${
           dark ? "text-silver-50" : "text-graphite-900"

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Button from "@/components/Button";
 import Eyebrow from "@/components/Eyebrow";
-import PixelMark from "@/components/PixelMark";
+import Logomark from "@/components/Logomark";
 import Reveal from "@/components/Reveal";
 import Section from "@/components/Section";
 
@@ -94,7 +94,7 @@ export default function SectorsPage() {
                   key={f}
                   className="flex items-start gap-3 text-[0.95rem] text-graphite-700"
                 >
-                  <PixelMark className="mt-1.5 shrink-0 text-accent-blue" />
+                  <Logomark className="mt-1.5 h-[10px] w-[10px] shrink-0 text-accent-blue" />
                   {f}
                 </li>
               ))}
